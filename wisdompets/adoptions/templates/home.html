@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    {% for each in pets %}
+        <div class="petname">
+            <a href="{% url 'pet_detail' each.id %}">
+                <h3>{{each.name|capfirst}}</h3>
+            </a>
+
+            <p>{{each.species}}</p>
+
+            {% if each.breed %}
+                <p>Breed: {{each.breed}}</p>
+            {% endif %}
+
+            <p class="hidden">{{each.description}}</p>
+
+        </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
